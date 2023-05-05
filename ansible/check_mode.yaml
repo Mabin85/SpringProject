@@ -14,7 +14,7 @@
           copy:
               content: "{{ data }}"
               dest: /tmp/myfile.txt
-          check_mode: no
+          check_mode: yes
          # Task 3
         - name: Read the content
           command: cat /tmp/myfile.txt
