@@ -1,0 +1,11 @@
+---
+ - name: First play
+   hosts: dbservers
+   tasks:
+         - name: creating /tmp/local.txt
+           command: touch /tmp/local.txt
+ - name: Sec play
+   hosts: webservers
+   tasks:
+           - name: creating /tmp/webserver.txt
+             command: touch /tmp/webserver.txt

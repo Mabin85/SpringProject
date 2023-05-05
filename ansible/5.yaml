@@ -1,0 +1,24 @@
+---
+ - name: play for dbservers multiple tasks
+   hosts: dbservers
+   vars_prompt:
+      name: data
+      prompt: Enter content of file
+      
+   tasks:
+         # Task1
+        - name: create a file
+          command: touch /tmp/myfile.txt
+        # Task2
+        - name: Add content to the file
+          copy:
+              content: "{{ data }}"
+              dest: /tmp/myfile.txt
+         # Task 3
+        - name: Read the content
+          command: cat /tmp/myfile.txt
+          register: output
+          # Task 4
+        - name: Print the content
+          debug:
+             var: output.stdout

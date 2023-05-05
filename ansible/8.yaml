@@ -1,0 +1,10 @@
+---
+ - hosts: webservers
+   tasks:
+        - name: Task1
+          command: date
+        - name: Task2
+          command: date1
+          ignore_errors: True
+        - name: Task3
+          command: ls

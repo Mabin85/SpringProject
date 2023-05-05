@@ -1,0 +1,6 @@
+---
+ - name: play for dry run
+   hosts: dbservers
+   tasks:
+        - name: Copying testing.txt file to webservers
+          copy: src=/tmp/testing.txt dest=/tmp/test.txt

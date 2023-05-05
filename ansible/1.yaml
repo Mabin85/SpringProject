@@ -1,0 +1,11 @@
+---
+ - name: Play for running some linux commands
+   hosts: webservers
+   tasks: 
+     - name: Executing task hello world
+       command: date
+       register: output
+     - name: Run output of task1
+       debug: 
+         msg: "The current date is = {{ output.stdout }}"
+

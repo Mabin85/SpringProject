@@ -1,0 +1,7 @@
+---
+ - name: play for finding the facts using ansible magic variables
+   hosts: webservers,dbservers
+   tasks:
+        - name: Print some facts
+          debug:
+               msg: "{{ ansible_facts['os_family'], ansible_facts['nodename'], ansible_all_ipv4_addresses }}"

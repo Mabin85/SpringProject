@@ -1,0 +1,20 @@
+---
+ - name: play for dbservers multiple tasks
+   hosts: dbservers
+   tasks:
+         # Task1
+        - name: create a file
+          command: touch /tmp/myfile.txt
+        # Task2
+        - name: Add content to the file
+          copy:
+            content: "Hello World"
+            dest: /tmp/myfile.txt
+         # Task 3
+        - name: Read the content
+          command: cat /tmp/myfile.txt
+          register: output
+          # Task 4
+        - name: Print the content
+          debug:
+             var: output.stdout
